@@ -12,12 +12,12 @@
             font-family: 'San Francisco Display';
             src: url(fonts/SFPRODISPLAYBOLD.ttf) format('truetype');
         }
-        
+
         body {
             margin: 0;
             font-family: SF Pro Display, sans-serif;
         }
-        
+
         .header {
             background-color: #000;
             color: white;
@@ -25,30 +25,44 @@
             align-items: center;
             padding: 10px 20px;
         }
-        
+
         .header img {
             height: 50px;
             width: 50px;
             margin-right: 20px;
         }
-        
+
         .nav {
             margin-left: auto;
             display: flex;
         }
-        
+
         .nav a {
             color: white;
             text-decoration: none;
             margin-left: 20px;
             font-size: 18px;
             position: relative;
-            transition: color 0.3s ease, transform 0.3s ease;
+            transition: color 0.3s ease;
+        }
+
+        .nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 2px;
+            background-color: #fff;
+            transition: width 0.3s ease;
         }
 
         .nav a:hover {
-            text-decoration: underline;
-            transform: translateY(-3px);
+            color: #ddd;
+        }
+
+        .nav a:hover::after {
+            width: 100%;
         }
 
         /* Grey section styling */
@@ -66,7 +80,7 @@
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            text-align: center; /* Center text horizontally */
+            text-align: center; /* Keep text aligned to the center */
         }
 
         .text-container {
@@ -75,7 +89,6 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center; /* Center text vertically */
             font-size: 75px;
             font-weight: bold;
             color: #333;
@@ -138,6 +151,18 @@
 
         .image-dot.active {
             background-color: #000;
+        }
+
+        /* Animation for topbar */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
