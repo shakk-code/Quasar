@@ -79,15 +79,17 @@
         .carousel-content {
             display: flex;
             transition: transform 0.5s ease-in-out;
+            width: 300%; /* Width of all slides combined (3 slides, 100% each) */
         }
 
         .carousel-slide {
-            width: 100%; /* Each slide takes the full width */
+            width: 100vw; /* Each slide takes the full viewport width */
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 40px;
             flex-shrink: 0;
+            box-sizing: border-box; /* Includes padding in width calculations */
         }
 
         .carousel-slide .text-container {
@@ -241,7 +243,7 @@
             const carouselContent = document.getElementById('carouselContent');
             const dots = document.querySelectorAll('.image-dot');
 
-            carouselContent.style.transform = `translateX(-${currentIndex * 100}%)`;
+            carouselContent.style.transform = `translateX(-${currentIndex * 100}vw)`;
             dots.forEach((dot, index) => {
                 dot.classList.toggle('active', index === currentIndex);
             });
