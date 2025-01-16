@@ -3,94 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quasar Pro</title>
-    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>Website</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background-color: #333;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .header img {
+            height: 50px;
+            width: 50px;
+            margin-right: 20px;
+        }
+
+        .nav {
+            margin-left: auto;
+            display: flex;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 18px;
+        }
+
+        .nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-
-    <!-- Section with gradient -->
-    <section>
-        <header>
-            <h1>Quasar Pro</h1>
-        </header>
-        <p>Coming Mid 2025</p>
-        <!-- Learn More Button -->
-        <button class="learn-more-btn">Learn More</button>
-    </section>
-    <style>
-      /* General reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Set polka dots background for the entire page */
-body {
-    background-color: #000; /* Black background for the rest of the page */
-    background-size: 25px 25px; /* Smaller size for more repeated polka dots */
-    background-image: radial-gradient(circle, #fff 1px, transparent 1px); /* White polka dots */
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Font family */
-    color: #fff;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Align items to the top */
-    align-items: center;
-    padding-top: 20px; /* Some padding from the top */
-}
-
-/* Styling for the section */
-section {
-    width: 100%;
-    background: linear-gradient(to bottom, #808080, #D9572D); /* Apply gradient as background */
-    padding: 40px 0; /* Top and bottom padding for the section */
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Styling for the header inside the section */
-header {
-    margin-bottom: 20px; /* Space between header and text below */
-}
-
-/* Bold header */
-h1 {
-    font-weight: bold;
-    font-size: 3rem;
-}
-
-/* Text below the header */
-p {
-    font-weight: normal; /* Less bold */
-    font-size: 1.5rem;
-    margin-bottom: 30px; /* Some space before the button */
-}
-
-/* Styling for the Learn More button */
-.learn-more-btn {
-    padding: 15px 30px;
-    background-color: white;
-    color: #D9572D; /* Orange-red color for text */
-    font-size: 1.25rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 50px; /* Round button */
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-}
-
-/* Hover effect for the Learn More button */
-.learn-more-btn:hover {
-    background-color: #D9572D; /* Change background to orange-red */
-    color: white; /* Text turns white */
-    transform: scale(1.1); /* Slightly grow the button */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect */
-}
-    </style>
+    <div class="header">
+        <img src="placeholder.jpg" alt="Logo">
+        <div class="nav">
+            <a href="#about">About</a>
+            <a href="#products">Products</a>
+            <a href="#account">Account</a>
+        </div>
+    </div>
 </body>
 </html>
