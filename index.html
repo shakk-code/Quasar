@@ -52,11 +52,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             margin-top: 40px;
         }
 
         .carousel {
             display: flex;
+            flex-direction: column;
             align-items: center;
         }
 
@@ -68,7 +70,7 @@
 
         .image-dots {
             display: flex;
-            margin: 0 20px;
+            margin-top: 10px;
         }
 
         .image-dot {
@@ -107,20 +109,24 @@
 
     <!-- Image Carousel Section -->
     <div class="carousel-container">
-        <div class="arrow" onclick="moveCarousel(-1)">&#10094;</div>
-        
+        <!-- Image Display -->
+        <div class="image-container">
+            <img id="carouselImage" src="https://via.placeholder.com/300x200?text=Image+1" alt="Carousel Image">
+        </div>
+
+        <!-- Carousel Arrows -->
         <div class="carousel">
-            <div class="image-container">
-                <img id="carouselImage" src="https://via.placeholder.com/300x200?text=Image+1" alt="Carousel Image">
-            </div>
+            <div class="arrow" onclick="moveCarousel(-1)">&#10094;</div>
+            
+            <!-- Dots Navigation -->
             <div class="image-dots" id="imageDots">
                 <div class="image-dot active" onclick="selectImage(0)"></div>
                 <div class="image-dot" onclick="selectImage(1)"></div>
                 <div class="image-dot" onclick="selectImage(2)"></div>
             </div>
+
+            <div class="arrow" onclick="moveCarousel(1)">&#10095;</div>
         </div>
-        
-        <div class="arrow" onclick="moveCarousel(1)">&#10095;</div>
     </div>
 
     <script>
