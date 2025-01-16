@@ -53,6 +53,7 @@
             display: flex;
             background-color: #f0f0f0;
             padding: 40px;
+            flex-direction: row;
         }
 
         .text-container {
@@ -61,7 +62,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 24px;
+            font-size: 40px;
+            font-weight: bold;
             color: #333;
         }
 
@@ -124,15 +126,11 @@
         </div>
     </div>
 
-    <div style="display: flex; height: 65vh;">
-        <h1 style="font-size: 80px">Create and explore,<br><span style="display: block;">like never before.</span></h1>
-    </div>
-
-    <!-- Grey Section with Text and Carousel -->
+    <!-- Grey Section with Large Text and Carousel -->
     <div class="content-section">
         <!-- Text Container -->
         <div class="text-container" id="textContainer">
-            Text for Image 1
+            Create and explore,<br><span style="display: block;">like never before.</span>
         </div>
 
         <!-- Carousel Container -->
@@ -167,9 +165,9 @@
         ];
         
         const textContent = [
-            "Text for Image 1",
-            "Text for Image 2",
-            "Text for Image 3"
+            "Create and explore,<br>like never before.",
+            "Discover new horizons,<br>and break boundaries.",
+            "Unleash your creativity,<br>and share it with the world."
         ];
 
         function updateCarousel() {
@@ -187,7 +185,7 @@
             });
 
             // Update the text content
-            document.getElementById("textContainer").textContent = textContent[currentImageIndex];
+            document.getElementById("textContainer").innerHTML = textContent[currentImageIndex];
         }
 
         function moveCarousel(direction) {
