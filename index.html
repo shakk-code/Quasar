@@ -47,13 +47,30 @@
         .nav a:hover {
             text-decoration: underline;
         }
-        
+
+        /* Grey section styling */
+        .content-section {
+            display: flex;
+            background-color: #f0f0f0;
+            padding: 40px;
+        }
+
+        .text-container {
+            flex: 1;
+            margin-right: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: #333;
+        }
+
         .carousel-container {
+            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            margin-top: 40px;
         }
 
         /* Image display section */
@@ -111,25 +128,33 @@
         <h1 style="font-size: 80px">Create and explore,<br><span style="display: block;">like never before.</span></h1>
     </div>
 
-    <!-- Image Carousel Section -->
-    <div class="carousel-container">
-        <!-- Image Display -->
-        <div class="image-container">
-            <img id="carouselImage" src="https://via.placeholder.com/300x200?text=Image+1" alt="Carousel Image">
+    <!-- Grey Section with Text and Carousel -->
+    <div class="content-section">
+        <!-- Text Container -->
+        <div class="text-container" id="textContainer">
+            Text for Image 1
         </div>
 
-        <!-- Carousel Arrows and Dots -->
-        <div class="carousel">
-            <div class="arrow" onclick="moveCarousel(-1)">&#10094;</div>
-
-            <!-- Dots Navigation -->
-            <div class="image-dots" id="imageDots">
-                <div class="image-dot active" onclick="selectImage(0)"></div>
-                <div class="image-dot" onclick="selectImage(1)"></div>
-                <div class="image-dot" onclick="selectImage(2)"></div>
+        <!-- Carousel Container -->
+        <div class="carousel-container">
+            <!-- Image Display -->
+            <div class="image-container">
+                <img id="carouselImage" src="https://via.placeholder.com/300x200?text=Image+1" alt="Carousel Image">
             </div>
 
-            <div class="arrow" onclick="moveCarousel(1)">&#10095;</div>
+            <!-- Carousel Arrows and Dots -->
+            <div class="carousel">
+                <div class="arrow" onclick="moveCarousel(-1)">&#10094;</div>
+
+                <!-- Dots Navigation -->
+                <div class="image-dots" id="imageDots">
+                    <div class="image-dot active" onclick="selectImage(0)"></div>
+                    <div class="image-dot" onclick="selectImage(1)"></div>
+                    <div class="image-dot" onclick="selectImage(2)"></div>
+                </div>
+
+                <div class="arrow" onclick="moveCarousel(1)">&#10095;</div>
+            </div>
         </div>
     </div>
 
@@ -141,6 +166,12 @@
             "https://via.placeholder.com/300x200?text=Image+3"
         ];
         
+        const textContent = [
+            "Text for Image 1",
+            "Text for Image 2",
+            "Text for Image 3"
+        ];
+
         function updateCarousel() {
             // Update the image
             document.getElementById("carouselImage").src = images[currentImageIndex];
@@ -154,6 +185,9 @@
                     dot.classList.remove("active");
                 }
             });
+
+            // Update the text content
+            document.getElementById("textContainer").textContent = textContent[currentImageIndex];
         }
 
         function moveCarousel(direction) {
