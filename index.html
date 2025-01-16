@@ -47,40 +47,13 @@
         .nav a:hover {
             text-decoration: underline;
         }
-
-        /* Grey section styling */
-        .content-section {
-            display: flex;
-            background-color: #f0f0f0;
-            padding: 40px;
-            flex-direction: row;
-        }
-
-        .text-container {
-            flex: 1;
-            margin-right: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 40px;
-            font-weight: bold;
-            color: #333;
-            line-height: 1.3;
-        }
-
-        .subtext {
-            font-size: 18px;
-            font-weight: normal;
-            color: #666;
-            margin-top: 10px;
-        }
-
+        
         .carousel-container {
-            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            margin-top: 40px;
         }
 
         /* Image display section */
@@ -134,34 +107,29 @@
         </div>
     </div>
 
-    <!-- Grey Section with Large Text and Carousel -->
-    <div class="content-section">
-        <!-- Text Container -->
-        <div class="text-container" id="textContainer">
-            Create and explore,<br><span style="display: block;">like never before.</span>
-            <div class="subtext">Discover endless possibilities and unleash your imagination.</div>
+    <div style="display: flex; justify-content: center; align-items: center; height: 65vh;">
+        <h1 style="text-align: center; font-size: 80px">Create and explore,<br><span style="display: block; text-align: center;">like never before.</span></h1>
+    </div>
+
+    <!-- Image Carousel Section -->
+    <div class="carousel-container">
+        <!-- Image Display -->
+        <div class="image-container">
+            <img id="carouselImage" src="https://via.placeholder.com/300x200?text=Image+1" alt="Carousel Image">
         </div>
 
-        <!-- Carousel Container -->
-        <div class="carousel-container">
-            <!-- Image Display -->
-            <div class="image-container">
-                <img id="carouselImage" src="https://via.placeholder.com/300x200?text=Image+1" alt="Carousel Image">
+        <!-- Carousel Arrows and Dots -->
+        <div class="carousel">
+            <div class="arrow" onclick="moveCarousel(-1)">&#10094;</div>
+
+            <!-- Dots Navigation -->
+            <div class="image-dots" id="imageDots">
+                <div class="image-dot active" onclick="selectImage(0)"></div>
+                <div class="image-dot" onclick="selectImage(1)"></div>
+                <div class="image-dot" onclick="selectImage(2)"></div>
             </div>
 
-            <!-- Carousel Arrows and Dots -->
-            <div class="carousel">
-                <div class="arrow" onclick="moveCarousel(-1)">&#10094;</div>
-
-                <!-- Dots Navigation -->
-                <div class="image-dots" id="imageDots">
-                    <div class="image-dot active" onclick="selectImage(0)"></div>
-                    <div class="image-dot" onclick="selectImage(1)"></div>
-                    <div class="image-dot" onclick="selectImage(2)"></div>
-                </div>
-
-                <div class="arrow" onclick="moveCarousel(1)">&#10095;</div>
-            </div>
+            <div class="arrow" onclick="moveCarousel(1)">&#10095;</div>
         </div>
     </div>
 
@@ -173,12 +141,6 @@
             "https://via.placeholder.com/300x200?text=Image+3"
         ];
         
-        const textContent = [
-            "Create and explore,<br>like never before.",
-            "Discover new horizons,<br>and break boundaries.",
-            "Unleash your creativity,<br>and share it with the world."
-        ];
-
         function updateCarousel() {
             // Update the image
             document.getElementById("carouselImage").src = images[currentImageIndex];
@@ -192,9 +154,6 @@
                     dot.classList.remove("active");
                 }
             });
-
-            // Update the text content
-            document.getElementById("textContainer").innerHTML = textContent[currentImageIndex];
         }
 
         function moveCarousel(direction) {
