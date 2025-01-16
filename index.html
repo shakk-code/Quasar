@@ -60,8 +60,9 @@
             flex: 1;
             margin-right: 40px;
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             font-size: 40px;
             font-weight: bold;
             color: #333;
@@ -138,8 +139,12 @@
     <div class="content-section">
         <!-- Text Container -->
         <div class="text-container" id="textContainer">
-            Create and explore,<br><span style="display: block;">like never before.</span>
-            <div class="subtext">Discover endless possibilities and unleash your imagination.</div>
+            <div id="mainText">
+                Create and explore,<br><span style="display: block;">like never before.</span>
+            </div>
+            <div class="subtext">
+                Discover endless possibilities and unleash your imagination.
+            </div>
         </div>
 
         <!-- Carousel Container -->
@@ -193,8 +198,8 @@
                 }
             });
 
-            // Update the text content
-            document.getElementById("textContainer").innerHTML = textContent[currentImageIndex];
+            // Update the main text
+            document.getElementById("mainText").innerHTML = textContent[currentImageIndex];
         }
 
         function moveCarousel(direction) {
