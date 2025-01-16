@@ -5,11 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website</title>
     <style>
+        @font-face {
+            font-family: 'San Francisco Display';
+            src: url('fonts/SFPRODISPLAYREGULAR.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'San Francisco Display', Arial, sans-serif;
         }
-
+        
         .header {
             background-color: #000;
             color: white;
@@ -17,25 +24,25 @@
             align-items: center;
             padding: 10px 20px;
         }
-
+        
         .header img {
             height: 50px;
             width: 50px;
             margin-right: 20px;
         }
-
+        
         .nav {
             margin-left: auto;
             display: flex;
         }
-
+        
         .nav a {
             color: white;
             text-decoration: none;
             margin-left: 20px;
             font-size: 18px;
         }
-
+        
         .nav a:hover {
             text-decoration: underline;
         }
