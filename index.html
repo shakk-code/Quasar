@@ -47,6 +47,48 @@
         .nav a:hover {
             text-decoration: underline;
         }
+        
+        .carousel-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .carousel {
+            display: flex;
+            align-items: center;
+        }
+
+        .arrow {
+            font-size: 30px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .image-dots {
+            display: flex;
+            margin: 0 20px;
+        }
+
+        .image-dot {
+            width: 15px;
+            height: 15px;
+            background-color: #ccc;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .image-dot.active {
+            background-color: #000;
+        }
+
+        .image-container img {
+            max-width: 300px;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
@@ -62,6 +104,66 @@
     <div style="display: flex; justify-content: center; align-items: center; height: 65vh;">
         <h1 style="text-align: center; font-size: 80px">Create and explore,<br><span style="display: block; text-align: center;">like never before.</span></h1>
     </div>
+
+    <!-- Image Carousel Section -->
+    <div class="carousel-container">
+        <div class="arrow" onclick="moveCarousel(-1)">&#10094;</div>
+        
+        <div class="carousel">
+            <div class="image-container">
+                <img id="carouselImage" src="https://via.placeholder.com/300x200?text=Image+1" alt="Carousel Image">
+            </div>
+            <div class="image-dots" id="imageDots">
+                <div class="image-dot active" onclick="selectImage(0)"></div>
+                <div class="image-dot" onclick="selectImage(1)"></div>
+                <div class="image-dot" onclick="selectImage(2)"></div>
+            </div>
+        </div>
+        
+        <div class="arrow" onclick="moveCarousel(1)">&#10095;</div>
+    </div>
+
+    <script>
+        let currentImageIndex = 0;
+        const images = [
+            "https://via.placeholder.com/300x200?text=Image+1",
+            "https://via.placeholder.com/300x200?text=Image+2",
+            "https://via.placeholder.com/300x200?text=Image+3"
+        ];
+        
+        function updateCarousel() {
+            // Update the image
+            document.getElementById("carouselImage").src = images[currentImageIndex];
+            
+            // Update the active dot
+            const dots = document.querySelectorAll(".image-dot");
+            dots.forEach((dot, index) => {
+                if (index === currentImageIndex) {
+                    dot.classList.add("active");
+                } else {
+                    dot.classList.remove("active");
+                }
+            });
+        }
+
+        function moveCarousel(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) {
+                currentImageIndex = images.length - 1;
+            } else if (currentImageIndex >= images.length) {
+                currentImageIndex = 0;
+            }
+            updateCarousel();
+        }
+
+        function selectImage(index) {
+            currentImageIndex = index;
+            updateCarousel();
+        }
+
+        // Initialize the carousel
+        updateCarousel();
+    </script>
 
 </body>
 </html>
