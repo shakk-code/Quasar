@@ -65,6 +65,14 @@
             width: 100%;
         }
 
+        /* Grey section styling */
+        .content-section {
+            display: flex;
+            background-color: #f0f0f0;
+            padding: 40px;
+            flex-direction: row;
+        }
+
         .learn-section {
             display: flex;
             flex-direction: column;
@@ -80,6 +88,7 @@
             margin-bottom: 20px;
         }
 
+        /* Grid Styling */
         .learn-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -103,6 +112,67 @@
             background-color: #333333;
             transition: background-color 0.3s ease-in-out;
         }
+
+        /* Image carousel section */
+        .carousel-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 140,
+            width: 180
+        }
+
+        .image-container img {
+            max-width: 600px;
+            max-height: 500px;
+            border-radius: 10px;
+        }
+
+        .carousel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .arrow {
+            font-size: 30px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .image-dots {
+            display: flex;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .image-dot {
+            width: 15px;
+            height: 15px;
+            background-color: #ccc;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .image-dot.active {
+            background-color: #000;
+        }
+
+        /* Animation for topbar */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -115,25 +185,113 @@
         </div>
     </div>
 
+    <!-- Grey Section with Large Text and Carousel -->
     <div class="content-section">
-        <div class="learn-section">
-            <div class="text-container">
-                <h1>Why we're trusted</h1>
-                <p>And why we trust you.</p>
+        <!-- Text Container -->
+        <div class="text-container" id="textContainer">
+            <div id="mainText">
+                Create and explore,<br><span style="display: block;">like never before.</span>
             </div>
-            <div class="learn-grid">
-                <div class="learn-box" contenteditable="true">Your text here 1</div>
-                <div class="learn-box" contenteditable="true">Your text here 2</div>
-                <div class="learn-box" contenteditable="true">Your text here 3</div>
-                <div class="learn-box" contenteditable="true">Your text here 4</div>
-                <div class="learn-box" contenteditable="true">Your text here 5</div>
-                <div class="learn-box" contenteditable="true">Your text here 6</div>
+            <div class="subtext">
+                Discover endless possibilities and unleash your imagination.
+            </div>
+        </div>
+
+        <!-- Carousel Container -->
+        <div class="carousel-container">
+            <!-- Image Display -->
+            <div class="image-container">
+                <img id="carouselImage" src="https://cdn.discordapp.com/attachments/1327813828846813307/1327845338681446400/image.png?ex=678a7a96&is=67892916&hm=4073a14e3902438b9493eac80e219b7719894badc8ec96d67467b720d8ca0509&" alt="Carousel Image">
+            </div>
+
+            <!-- Carousel Arrows and Dots -->
+            <div class="carousel">
+                <div class="arrow" onclick="moveCarousel(-1)">&#10094;</div>
+
+                <!-- Dots Navigation -->
+                <div class="image-dots" id="imageDots">
+                    <div class="image-dot active" onclick="selectImage(0)"></div>
+                    <div class="image-dot" onclick="selectImage(1)"></div>
+                    <div class="image-dot" onclick="selectImage(2)"></div>
+                </div>
+
+                <div class="arrow" onclick="moveCarousel(1)">&#10095;</div>
             </div>
         </div>
     </div>
 
+    <div class="learn-section">
+        <div class="text-container" id="textContainer">
+            <span style="color: #FFFFFF">
+            <div id="mainText">
+                Why we're trusted
+            </div>
+            <div class="subtext">
+                <span style="text-align: center;">
+                And why we trust you.
+            </div>
+        </div>
+
+        <!-- Learn Section Grid -->
+        <div class="learn-grid">
+            <div class="learn-box" contenteditable="true">Your text here 1</div>
+            <div class="learn-box" contenteditable="true">Your text here 2</div>
+            <div class="learn-box" contenteditable="true">Your text here 3</div>
+            <div class="learn-box" contenteditable="true">Your text here 4</div>
+            <div class="learn-box" contenteditable="true">Your text here 5</div>
+            <div class="learn-box" contenteditable="true">Your text here 6</div>
+        </div>
+    </div>
+
     <script>
-        // Optional: Add any JavaScript behavior for the grid or boxes here.
+        let currentImageIndex = 0;
+        const images = [
+            "https://cdn.discordapp.com/attachments/1327813828846813307/1327855496115392522/image.png?ex=678a840c&is=6789328c&hm=1aeb2ec6c292398dcc815c85cc0d43fee06d667bc303705dd63c4b5f862e331d&",
+            "https://cdn.discordapp.com/attachments/1327813828846813307/1327849493277704243/image.png?ex=678a7e75&is=67892cf5&hm=38de8db3710330ce3c67f2547de3fa5295002f29c4f1550dca09a32dc72b7806&",
+            "https://cdn.discordapp.com/attachments/1327813828846813307/1327845338681446400/image.png?ex=678a7a96&is=67892916&hm=4073a14e3902438b9493eac80e219b7719894badc8ec96d67467b720d8ca0509&"
+        ];
+
+        const textContent = [
+            "Create and explore,<br>like never before.",
+            "Join hundreds of people,<br>just like you.",
+            "Unleash your creativity,<br>and share it with the world."
+        ];
+
+        function updateCarousel() {
+            // Update the image
+            document.getElementById("carouselImage").src = images[currentImageIndex];
+            
+            // Update the active dot
+            const dots = document.querySelectorAll(".image-dot");
+            dots.forEach((dot, index) => {
+                if (index === currentImageIndex) {
+                    dot.classList.add("active");
+                } else {
+                    dot.classList.remove("active");
+                }
+            });
+
+            // Update the main text
+            document.getElementById("mainText").innerHTML = textContent[currentImageIndex];
+        }
+
+        function moveCarousel(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) {
+                currentImageIndex = images.length - 1;
+            } else if (currentImageIndex >= images.length) {
+                currentImageIndex = 0;
+            }
+            updateCarousel();
+        }
+
+        function selectImage(index) {
+            currentImageIndex = index;
+            updateCarousel();
+        }
+
+        // Initialize the carousel
+        updateCarousel();
     </script>
 </body>
 </html>
