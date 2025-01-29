@@ -1,8 +1,14 @@
-html, body {
+body {
+    display: flex;
     margin: 0;
+    justify-content: center; /* Horizontally center the text */
+    align-items: center; /* Vertically center the text */
     padding: 0;
     width: 100%;
     min-height: 100vh;
-    background: radial-gradient(circle,#5A4AD1 1%, #000000 70%);
+    background: #000000;
+    color: white;
+    font-family: 'Inter';
     background-attachment: fixed;
 }
+
